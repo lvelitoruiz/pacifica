@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../hooks/AuthSlice';
 import { AppDispatch } from '../hooks/store';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const registerSchema = yup.object().shape({
     email: yup.string().email('Invalid email format').required('Email is required'),
@@ -87,6 +87,9 @@ const FormRegister: React.FC = () => {
                     {errors.password && <span className='text-sm mt-2 text-red-300 inline-block'>{errors.password}</span>}
                 </div>
                 <button type="submit" className="text-white duration-300 transition-all ease-in-out focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Register</button>
+                <div>
+                <Link to="/" className='text-gray-400 inline-block transition-all duration-300 hover:text-blue-400 mt-3 pl-1 leading-8'>Or Login</Link>
+                </div>
             </form>
         </div>
     );

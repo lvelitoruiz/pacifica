@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../hooks/AuthSlice';
 import { AppDispatch } from '../hooks/store';
+import { Link } from 'react-router-dom';
 
 
 const loginSchema = yup.object().shape({
@@ -56,6 +57,9 @@ const FormLogin: React.FC = () => {
                     {errors.password && <span className='text-sm mt-2 text-red-300 inline-block'>{errors.password}</span>}
                 </div>
                 <button type="submit" className="text-white duration-300 transition-all ease-in-out focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Submit</button>
+                <div>
+                <Link to="/register" className='text-gray-400 inline-block transition-all duration-300 hover:text-blue-400 mt-3 pl-1 leading-8'>Or Register</Link>
+                </div>
             </form>
         </div>
     );
